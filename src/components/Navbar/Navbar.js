@@ -4,14 +4,12 @@ import { Logout, LoginAction } from '../Actions/Actions';
 import { useNavigate } from 'react-router-dom';
 import './Navbar.css';
 
-
 export const Navbar = () => {
     const dispatch = useDispatch();
     const { isLoggedIn } = useSelector(state => state.auth);
     const navigate = useNavigate();
 
     const handleLogin = () => {
-
         const userData = { name: 'Usuario', email: 'usuario@example.com' };
         dispatch(LoginAction(userData));
         navigate('/Login');
@@ -24,14 +22,14 @@ export const Navbar = () => {
 
     return (
         <nav className="navbar">
-            <div className="container">
+            <div className="containernavbar">
                 <a href="/" className="navbar-brand">StreamHub</a>
                 <ul className="navbar-nav">
                     <li className="nav-item">
-                        <a href="/" className="nav-link">Home</a>
+                        <a href="/" className="nav-home">Home</a>
                     </li>
                 </ul>
-                <div className="buttons-container">
+                <div className="ml-auto">
                     {isLoggedIn ? (
                         <button className="logout-btn" onClick={handleLogout}>Cerrar sesión</button>
                     ) : (

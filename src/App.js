@@ -4,11 +4,11 @@ import { Home } from './components/Home/Home';
 import { Login } from './components/Login/Login';
 import { ContentDetails } from './components/ContentDetails/ContentDetails';
 import { ContentCategory } from './components/ContentCategory/ContentCategory';
-
+import './App.css';
 
 export const App = () => {
     return (
-        <div className="App">
+        <div className="body">
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/Login" element={<Login />} />

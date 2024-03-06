@@ -1,1 +1,39 @@
-/*Style ContentDetails*/
+.content-details-container {
+    display: flex;
+    align-items: center;
+}
+
+.movie-poster {
+    width: 200px;
+    height: auto;
+}
+
+.movie-details {
+    margin-left: 20px;
+}
+
+.movie-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.movie-overview {
+    font-size: 16px;
+}
+
+.trailer-video {
+    width: 100%;
+    height: 400px;
+}
+
+@media screen and (max-width: 768px) {
+    .trailer-video {
+        height: 300px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .trailer-video {
+        height: 200px;
+    }
+}

@@ -8,11 +8,10 @@ import { App } from './App';
 
 const store = createStore(RootReducer);
 
-ReactDOM.render(
+ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </Provider>,
-  document.getElementById('root')
+  </Provider>
 );
