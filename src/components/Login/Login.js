@@ -1,25 +1,27 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; 
+
 
 export const Login = () => {
-    // Estados para almacenar los valores de los campos del formulario
+    const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    // Función para manejar el envío del formulario
     const handleSubmit = (event) => {
-        event.preventDefault(); // Evitar que el formulario se envíe de forma predeterminada
-        // Aquí puedes realizar la lógica para enviar los datos a tu backend o realizar alguna acción
+        event.preventDefault();
         console.log('Username:', username);
         console.log('Email:', email);
         console.log('Password:', password);
+        navigate('/');
     };
+
+    
 
     return (
         <div>
             <h2>Inicio de sesión</h2>
             <form onSubmit={handleSubmit}>
-
                 <div>
                     <label htmlFor="username">Usuario:</label>
                     <input
@@ -49,7 +51,6 @@ export const Login = () => {
                         onChange={(e) => setPassword(e.target.value)}
                     />
                 </div>
-    
                 <button type="submit">Iniciar sesión</button>
             </form>
         </div>
