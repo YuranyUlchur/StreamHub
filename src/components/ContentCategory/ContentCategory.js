@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar } from '../Navbar/Navbar';
+import { Footer } from '../Footer/Footer';
 import { ApiServicesMovie } from '../ApiServices/ApiServices';
 import { Link, useParams } from 'react-router-dom';
 import './ContentCategory.css';
@@ -23,21 +24,21 @@ export const ContentCategory = () => {
     }, [id]);
 
     return (
-        <div className="content-category-container">
+        <div>
             <Navbar />
-            <h1 className="category-title">Category {name}</h1>
-            <div className="cards-container">
-                {movies.map(movie => (
-                    <div className="card" key={movie.id}>
-                        <Link to={`/movie/${movie.id}`}>
+            <div className="content-category-container">
+                <h1 className="category-title">Category {name}</h1>
+                <div className="cards-container">
+                    {movies.map(movie => (
+                        <div className="card" key={movie.id}>
                             <img className="card-image" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
-                            <div className="card-content">
-                                <h2 className="card-title">{movie.title}</h2>
-                            </div>
-                        </Link>
-                    </div>
-                ))}
+                            <Link to={`/movie/${movie.id}`} className="card-title-movie">{movie.title}</Link>
+                        </div>
+                    ))}
+                </div>
             </div>
+            <Footer />
         </div>
+
     );
 };

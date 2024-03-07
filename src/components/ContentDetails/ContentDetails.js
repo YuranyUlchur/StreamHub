@@ -1,65 +1,86 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar } from '../Navbar/Navbar';
-import { ApiServicesDetails } from '../ApiServices/ApiServices';
+import { Footer } from '../Footer/Footer';
+import { ApiServicesDetails, ApiServicesTrailer } from '../ApiServices/ApiServices';
 import { useParams } from 'react-router-dom';
-import { FaPlay } from 'react-icons/fa';
 import './ContentDetails.css';
 
 export const ContentDetails = () => {
-    const [movie, setMovies] = useState([]);
+    const [movie, setMovie] = useState(null);
     const [showVideo, setShowVideo] = useState(false);
     const { id } = useParams();
-    const { name } = useParams();
-    console.log(name)
+    const [trailer, setTrailer] = useState(null);
 
     useEffect(() => {
-        const fetchMovies = async () => {
+        const fetchMovieDetails = async () => {
             try {
                 const data = await ApiServicesDetails.fetchData(id);
-                setMovies(data);
+                setMovie(data);
             } catch (error) {
-                console.error('Error fetching movies:', error);
+                console.error('Error fetching movie details:', error);
             }
         };
 
-        fetchMovies();
+        fetchMovieDetails();
     }, [id]);
 
-   
-    const getYoutubeTrailerId = () => {
-        return "VIDEO_ID";
-    }
+
+    useEffect(() => {
+        const getTrailerId = async () => {
+            try {
+                const data = await ApiServicesTrailer.fetchData(id);
+                setTrailer(data.key);
+            } catch (error) {
+                console.error('Error fetching movie details:', error);
+            }
+        };
+
+        getTrailerId();
+    }, [id]);
 
     const handlePlayClick = () => {
         setShowVideo(true);
-    }
+    };
 
     return (
         <div>
             <Navbar />
-            <div className="content-details-container">
-                <img className="movie-poster" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
-                <div className="movie-details">
-                    <h1 className="movie-title">{movie.title}</h1>
-                    <p className="movie-overview">{movie.overview}</p>
-                    
-                    {!showVideo && (
-                        <div className="play-icon" onClick={handlePlayClick}>
-                            <FaPlay />
+            {movie && (
+                <div className="container">
+                    <div className="movie-details">
+                        <img className="movie-poster" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
+                        <div className="movie-overview-container">
+                            <h1 className="movie-title">{movie.title}</h1>
+                            <p className="movie-overview">{movie.overview}</p>
+                            <p className='movie-genre'>
+                                Genres: {movie.genres.map((genre, index) => (
+                                    <span key={genre.id}>
+                                        {genre.name}
+                                        {index !== movie.genres.length - 1 ? ', ' : ''}
+                                    </span>
+                                ))}
+                            </p>
+
                         </div>
-                    )}
-            
-                    {showVideo && (
-                        <iframe
-                            className="trailer-video"
-                            src={`https://www.youtube.com/embed/${getYoutubeTrailerId()}`}
-                            title="Trailer Video"
-                            frameBorder="0"
-                            allowFullScreen
-                        ></iframe>
-                    )}
+                    </div>
+
+                    <div className="video-trailer">
+                        {!showVideo && (
+                            <div className="play-icon" onClick={handlePlayClick}>
+                                <iframe
+                                    className="iframe-trailer"
+                                    src={`https://www.youtube.com/embed/${ trailer }`}
+                                    title="Trailer Video"
+                                    frameBorder="0"
+                                    allowFullScreen
+                                ></iframe>
+                            </div>
+                        )}
+                    </div>
+
                 </div>
-            </div>
+            )}
+            <Footer />
         </div>
     );
 };

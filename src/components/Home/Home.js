@@ -26,8 +26,8 @@ export const Home = () => {
 
 
 const backgroundImageList = [
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_XlkVyLTCa2K4QXS5qY7o6RmKi29HlLc1NA&usqp=CAU',
-    'https://hips.hearstapps.com/hmg-prod/images/aquaman-pelicula-8-1546188549.jpg?crop=0.75xw:1xh;center,top&resize=1200:*',
+    'https://www.10wallpaper.com/wallpaper/medium/1606/Wonder_Womans_Special_Powers-2016_Movies_HD_Wallpaper_medium.jpg',
+    'https://p4.wallpaperbetter.com/wallpaper/600/210/496/up-movie-animated-movies-movies-wallpaper-preview.jpg',
     'https://lumiere-a.akamaihd.net/v1/images/eu_xx_strange-world_c196_r_77f2a2c6.jpeg?region=0,2,1630,916',
     'https://www.lavanguardia.com/andro4all/hero/2023/08/dont-look-up.png?width=768&aspect_ratio=16:9&format=nowebp',
     'https://www.xtrafondos.com/descargar.php?id=8479&resolucion=3840x2160'
@@ -38,7 +38,7 @@ const iconList = [faRunning, faCompass, faTheaterMasks, faLaugh, faHandcuffs];
 return (
     <div>
         <Navbar />
-        <h1>Category</h1>
+        <h1 className='title-category'>Category</h1>
         <div className='category-cards-container'>
             {genres.map((genre, index) => (
                 <div key={genre.id} className='category-card'>

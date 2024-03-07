@@ -43,3 +43,19 @@ export const ApiServicesDetails = {
         }
     }
 };
+
+export const ApiServicesTrailer = {
+    fetchData: async (id) => {
+        try {
+            const response = await axios.get(`${API_URL}/movie/${id}/videos?api_key=${API_KEY}`);
+            console.log(response)
+
+            return response.data.results[0];
+
+
+        } catch (error) {
+            console.error('Error fetching movies:', error);
+            throw error;
+        }
+    }
+};

@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Logout, LoginAction } from '../Actions/Actions';
 import { useNavigate } from 'react-router-dom';
+import { FaFilm } from 'react-icons/fa';
 import './Navbar.css';
 
 export const Navbar = () => {
@@ -22,19 +23,17 @@ export const Navbar = () => {
 
     return (
         <nav className="navbar">
-            <div className="containernavbar">
-                <a href="/" className="navbar-brand">StreamHub</a>
-                <ul className="navbar-nav">
-                    <li className="nav-item">
+            <div className="container-navbar">
+                <a href="/" className="navbar-brand"> <FaFilm /> StreamHub</a>
+                <ul className="navbar-nav-home">
+                 
                         <a href="/" className="nav-home">Home</a>
-                    </li>
+                 
                 </ul>
                 <div className="ml-auto">
-                    {isLoggedIn ? (
-                        <button className="logout-btn" onClick={handleLogout}>Cerrar sesión</button>
-                    ) : (
-                        <button className="login-btn" onClick={handleLogin}>Iniciar sesión</button>
-                    )}
+                    <button className={isLoggedIn ? "logout-btn" : "login-btn"} onClick={isLoggedIn ? handleLogout : handleLogin}>
+                        {isLoggedIn ? "Cerrar sesión" : "Iniciar sesión"}
+                    </button>
                 </div>
             </div>
         </nav>
