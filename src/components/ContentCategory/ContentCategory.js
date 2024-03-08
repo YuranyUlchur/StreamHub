@@ -8,8 +8,7 @@ import './ContentCategory.css';
 // Component for displaying movies based on category
 export const ContentCategory = () => {
     const [movies, setMovies] = useState([]);
-    const { id } = useParams();
-    const { name } = useParams();
+    const { id, name } = useParams();
     // Fetch movies when component mounts or category id changes
     useEffect(() => {
         const fetchMovies = async () => {

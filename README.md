@@ -6,8 +6,10 @@
 
 ## Project Description📃
 
-Web application that allows users who purchase the service to view multimedia content such as videos
-videos, to users who purchase the service.🎬.
+Web application that allows users who purchase the service to view multimedia content, such as videos 🎬.
+
+Note
+The user can log in with any user, the password is not validated, for the validation of the users MOCKS was used.
 
 ## Technologies 📌
     React.js

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; 
-import './Login.css';
-import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux'; 
 import { loginUser } from '../Store/UserSlice';
+import './Login.css'; 
 
 export const Login = () => {
     const navigate = useNavigate();
@@ -11,7 +11,7 @@ export const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    //redux state
+    // Redux state
     const {loading, error} = useSelector((state)=>state.user);
 
     // Function to handle form submission
