@@ -10,7 +10,6 @@ export const ContentCategory = () => {
     const [movies, setMovies] = useState([]);
     const { id } = useParams();
     const { name } = useParams();
-
     // Fetch movies when component mounts or category id changes
     useEffect(() => {
         const fetchMovies = async () => {

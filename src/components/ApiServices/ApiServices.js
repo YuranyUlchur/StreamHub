@@ -8,7 +8,6 @@ export const ApiServicesGenre = {
     fetchData: async () => {
         try {
             const response = await axios.get(`${API_URL}/genre/movie/list?api_key=${API_KEY}`);
-            console.log(response);
             return response.data;
         } catch (error) {
             console.error('Error fetching movies:', error);
@@ -21,9 +20,7 @@ export const ApiServicesGenre = {
 export const ApiServicesMovie = {
     fetchData: async (id) => {
         try {
-            console.log(id);
             const response = await axios.get(`${API_URL}/discover/movie?sort_by=popularity.desc&with_genres=${id}&api_key=${API_KEY}`);
-            console.log(response);
             return response.data;
         } catch (error) {
             console.error('Error fetching movies:', error);
@@ -36,9 +33,7 @@ export const ApiServicesMovie = {
 export const ApiServicesDetails = {
     fetchData: async (id) => {
         try {
-            console.log(id);
             const response = await axios.get(`${API_URL}/movie/${id}?api_key=${API_KEY}`);
-            console.log(response);
             return response.data;
         } catch (error) {
             console.error('Error fetching movies:', error); 
@@ -52,7 +47,6 @@ export const ApiServicesTrailer = {
     fetchData: async (id) => {
         try {
             const response = await axios.get(`${API_URL}/movie/${id}/videos?api_key=${API_KEY}`);
-            console.log(response);
             return response.data.results[0];
         } catch (error) {
             console.error('Error fetching movies:', error);

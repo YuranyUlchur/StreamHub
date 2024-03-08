@@ -6,19 +6,17 @@ import { faRunning, faCompass, faTheaterMasks, faLaugh, faHandcuffs } from '@for
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Footer } from '../Footer/Footer';
 import './Home.css';
-
 // Home component
 export const Home = () => {
     // State to store movie genres
     const [genres, setGenres] = useState([]);
-
     // Fetch movie genres when component mounts
+
     useEffect(() => {
         const fetchMoviesGenre = async () => {
             try {
                 // Fetch movie genres data from API
                 const data = await ApiServicesGenre.fetchData();
-                console.log(data); // Log fetched data
                 // Set first 5 movie genres to state
                 setGenres(data.genres.slice(0, 5));
             } catch (error) {

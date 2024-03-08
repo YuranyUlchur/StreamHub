@@ -1,18 +1,32 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import './Login.css';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { loginUser } from '../Store/UserSlice';
 
 export const Login = () => {
     const navigate = useNavigate();
-    const [username, setUsername] = useState('');
+    const dispatch = useDispatch();
+    const [user, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    //redux state
+    const {loading, error} = useSelector((state)=>state.user);
 
     // Function to handle form submission
     const handleSubmit = (event) => {
         event.preventDefault();
-        navigate('/');
+        let userCredential = {
+            email, password
+        }
+        dispatch(loginUser(userCredential)).then((result)=>{
+            if (result.payload){
+                setEmail('');
+                setPassword('');
+                navigate('/');
+            }
+        })
     };
 
     return (
@@ -25,7 +39,8 @@ export const Login = () => {
                             type="text"
                             placeholder='Username'
                             id="username"
-                            value={username}
+                            value={user}
+                            required
                             onChange={(e) => setUsername(e.target.value)}
                         />
                     </div>
@@ -35,6 +50,7 @@ export const Login = () => {
                             id="email"
                             placeholder='Email'
                             value={email}
+                            required
                             onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
@@ -44,10 +60,14 @@ export const Login = () => {
                             id="password"
                             placeholder='Password'
                             value={password}
+                            required
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
-                    <button type="submit">Iniciar sesión</button>
+                    <button type="submit">{loading?'Loading...':'Login'}</button>
+                    {error&&(
+                        <div className='alert'>{error}</div>
+                    )}
                 </form>
             </div>
         </div>

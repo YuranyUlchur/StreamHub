@@ -1,25 +1,28 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Logout, LoginAction } from '../Actions/Actions';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaFilm } from 'react-icons/fa';
 import './Navbar.css';
 
-export const Navbar = () => {
-    const dispatch = useDispatch();
-    const { isLoggedIn } = useSelector(state => state.auth);
-    const navigate = useNavigate();
+function getUser(){
+    let user = localStorage.getItem('user');
+    if (!user){
+        user = null
+    }
+    return user;
+}
 
-    // Function to handle login action
-    const handleLogin = () => {
-        const userData = { name: 'Usuario', email: 'usuario@example.com' };
-        dispatch(LoginAction(userData));
-        navigate('/Login');
-    };
+export const Navbar = () => {
+    const [user, setUser] = useState(getUser())
+    const navigate = useNavigate();
+ 
+    const handleLogin = (()=>{
+        navigate("/login")
+    });
 
     // Function to handle logout action
     const handleLogout = () => {
-        dispatch(Logout());
+        localStorage.removeItem('user');
+        setUser(null);
         navigate('/');
     };
 
@@ -31,8 +34,8 @@ export const Navbar = () => {
                     <a href="/" className="nav-home">Home</a>
                 </ul>
                 <div className="ml-auto">
-                    <button className={isLoggedIn ? "logout-btn" : "login-btn"} onClick={isLoggedIn ? handleLogout : handleLogin}>
-                        {isLoggedIn ? "Cerrar sesión" : "Iniciar sesión"}
+                    <button className={user ? "logout-btn" : "login-btn"} onClick={user ? handleLogout : handleLogin}>
+                        {user ? "Cerrar sesión" : "Iniciar sesión"}
                     </button>
                 </div>
             </div>
