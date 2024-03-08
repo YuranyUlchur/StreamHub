@@ -11,6 +11,7 @@ videos, to users who purchase the service.🎬.
 
 ## Technologies 📌
     React.js
+    JavaScript
     Redux
     Axios
 ##  Installation 📥
