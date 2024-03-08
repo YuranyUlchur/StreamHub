@@ -10,12 +10,14 @@ export const Navbar = () => {
     const { isLoggedIn } = useSelector(state => state.auth);
     const navigate = useNavigate();
 
+    // Function to handle login action
     const handleLogin = () => {
         const userData = { name: 'Usuario', email: 'usuario@example.com' };
         dispatch(LoginAction(userData));
         navigate('/Login');
     };
 
+    // Function to handle logout action
     const handleLogout = () => {
         dispatch(Logout());
         navigate('/');
@@ -26,9 +28,7 @@ export const Navbar = () => {
             <div className="container-navbar">
                 <a href="/" className="navbar-brand"> <FaFilm /> StreamHub</a>
                 <ul className="navbar-nav-home">
-                 
-                        <a href="/" className="nav-home">Home</a>
-                 
+                    <a href="/" className="nav-home">Home</a>
                 </ul>
                 <div className="ml-auto">
                     <button className={isLoggedIn ? "logout-btn" : "login-btn"} onClick={isLoggedIn ? handleLogout : handleLogin}>

@@ -6,8 +6,10 @@ import { createRoot } from 'react-dom/client';
 import RootReducer from '../src/components/Reduce/Reduce';
 import { App } from './App';
 
+// Creating Redux store with RootReducer
 const store = createStore(RootReducer);
 
+// Rendering the root component with Redux store and BrowserRouter
 createRoot(document.getElementById('root')).render(
   <Provider store={store}>
     <BrowserRouter>

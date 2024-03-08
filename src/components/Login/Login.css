@@ -1,3 +1,7 @@
+:root {
+    --input-width: 250px;
+}
+
 .login-background {
     background-size: cover;
     background-position: center;
@@ -6,14 +10,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-   
 }
 
 .login-container {
     background-color: rgba(255, 255, 255, 0.8);
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .login-container h2 {
@@ -25,15 +28,12 @@
     flex-direction: column;
 }
 
-.login-container label {
-    margin-bottom: 5px;
-}
-
 .login-container input {
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    width: var(--input-width);
 }
 
 .login-container button {

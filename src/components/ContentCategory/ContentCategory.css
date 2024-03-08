@@ -1,3 +1,9 @@
+:root {
+    --card-width: calc(33.33% - 20px);
+    --card-width-mobile: calc(100% - 20px);
+    --card-border-radius: 8px;
+}
+
 .content-category-container {
     margin: 30px 30px;
 }
@@ -11,22 +17,15 @@
 .cards-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
-    justify-content: space-between;
+    gap: 25px;
 }
 
 .card {
-    width: calc(33.33% - 20px);
-    border-radius: 8px;
+    width: var(--card-width);
+    border-radius: var(--card-border-radius);
     overflow: hidden;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-}
-
-.card-image {
-    width: 100%;
-    height: auto;
-    border-radius: 8px 8px 0 0;
 }
 
 .card-title-movie {
@@ -36,10 +35,17 @@
     text-decoration: none;
 }
 
+.card-image {
+    width: 100%;
+    height: auto;
+    border-radius: var(--card-border-radius);
+}
+
+
 
 @media screen and (max-width: 480px) {
     .card {
-        width: calc(100% - 20px);
+        width: var(--card-width-mobile);
         margin-bottom: 0; 
     }
     

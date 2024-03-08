@@ -5,15 +5,19 @@ import { ApiServicesDetails, ApiServicesTrailer } from '../ApiServices/ApiServic
 import { useParams } from 'react-router-dom';
 import './ContentDetails.css';
 
+// Component for displaying movie details
 export const ContentDetails = () => {
     const [movie, setMovie] = useState(null);
     const [showVideo, setShowVideo] = useState(false);
-    const { id } = useParams();
     const [trailer, setTrailer] = useState(null);
+
+     // Get movie id from route parameters
+    const { id } = useParams();
 
     useEffect(() => {
         const fetchMovieDetails = async () => {
             try {
+                // Fetch movie details from API based on movie id
                 const data = await ApiServicesDetails.fetchData(id);
                 setMovie(data);
             } catch (error) {
@@ -25,6 +29,7 @@ export const ContentDetails = () => {
     }, [id]);
 
 
+    // Fetch trailer when component mounts or movie id changes
     useEffect(() => {
         const getTrailerId = async () => {
             try {
@@ -38,6 +43,8 @@ export const ContentDetails = () => {
         getTrailerId();
     }, [id]);
 
+
+      // Function to handle play button click event
     const handlePlayClick = () => {
         setShowVideo(true);
     };

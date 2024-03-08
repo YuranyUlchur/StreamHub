@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
-import './Login.css'; // Importa el archivo CSS que contiene los estilos
+import './Login.css';
+
 
 export const Login = () => {
     const navigate = useNavigate();
@@ -8,44 +9,40 @@ export const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    // Function to handle form submission
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log('Username:', username);
-        console.log('Email:', email);
-        console.log('Password:', password);
         navigate('/');
     };
 
     return (
-        <div className="login-background"> {/* Contenedor para aplicar el fondo */}
-            <div className="login-container"> {/* Contenedor para el formulario */}
+        <div className="login-background">
+            <div className="login-container">
                 <h2>Inicio de sesión</h2>
                 <form onSubmit={handleSubmit}>
                     <div>
-                        <label htmlFor="username">Usuario:</label>
                         <input
                             type="text"
+                            placeholder='Username'
                             id="username"
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
                         />
                     </div>
-
                     <div>
-                        <label htmlFor="email">Correo electrónico:</label>
                         <input
                             type="email"
                             id="email"
+                            placeholder='Email'
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
-
                     <div>
-                        <label htmlFor="password">Contraseña:</label>
                         <input
                             type="password"
                             id="password"
+                            placeholder='Password'
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />

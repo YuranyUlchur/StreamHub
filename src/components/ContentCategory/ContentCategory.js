@@ -5,11 +5,13 @@ import { ApiServicesMovie } from '../ApiServices/ApiServices';
 import { Link, useParams } from 'react-router-dom';
 import './ContentCategory.css';
 
+// Component for displaying movies based on category
 export const ContentCategory = () => {
     const [movies, setMovies] = useState([]);
     const { id } = useParams();
     const { name } = useParams();
 
+    // Fetch movies when component mounts or category id changes
     useEffect(() => {
         const fetchMovies = async () => {
             try {
@@ -31,14 +33,15 @@ export const ContentCategory = () => {
                 <div className="cards-container">
                     {movies.map(movie => (
                         <div className="card" key={movie.id}>
-                            <img className="card-image" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
-                            <Link to={`/movie/${movie.id}`} className="card-title-movie">{movie.title}</Link>
+                            <Link to={`/movie/${movie.id}`} className="card-title-movie">
+                                <img className="card-image" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
+                                {movie.title}
+                            </Link>
                         </div>
                     ))}
                 </div>
             </div>
             <Footer />
         </div>
-
     );
 };

@@ -1,14 +1,17 @@
+:root {
+    --container-padding: 50px;
+}
+
 .container {
     margin-right: auto;
     margin-left: auto;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
 }
 
-.content-details-container {
+.movie-details {
     display: flex;
-    align-items: center;
-
+    padding: 30px;
 }
 
 .movie-poster {
@@ -24,11 +27,6 @@
     padding: 30px;
 }
 
-.movie-details {
-    display: flex;
-    padding: 30px;
-}
-
 .movie-title {
     font-size: 24px;
     color: white;
@@ -39,15 +37,14 @@
     color: white;
 }
 
-.movie-genre{
+.movie-genre {
     color: white;
 }
 
 .iframe-trailer {
     width: 95%;
-    height: 600px;
+    height: 700px;
     padding: 30px;
-
 }
 
 .video-trailer {
@@ -61,7 +58,7 @@
     }
 
     .movie-poster {
-        width: 200px;
+        width: 300px;
     }
 
     .movie-details {
@@ -94,7 +91,7 @@
         padding: 20px;
     }
 
-    .video-trailer{
+    .video-trailer {
         margin-right: 30px;
     }
 }
