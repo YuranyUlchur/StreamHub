@@ -1,4 +1,4 @@
-# 💗👋 Project stream-hub 💗👋
+# 💗👋 Project screen-stream 💗👋
 
 <img align="center" src="https://p4.wallpaperbetter.com/wallpaper/621/859/641/peliculas-terror-wallpaper-preview.jpg" />
 
@@ -22,7 +22,7 @@ Follow these steps to set up the project in your local environment:
 
 1. Clone the repository:
 
-	   git clone https://github.com/YuranyUlchur/stream-hub.git
+	  https://github.com/YuranyUlchur/screen-stream.git
 
 2. Navigate to the project directory:
 
