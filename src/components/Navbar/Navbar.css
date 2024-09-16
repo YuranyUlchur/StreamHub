@@ -51,7 +51,9 @@
     background-color: #4169E1;
 }
 
-@media screen and (max-width: 480px) {
+
+
+@media screen and (max-width: 581px) {
     .nav-home {
         font-size: 0.9rem;
         margin-right: 10px;
@@ -73,4 +75,26 @@
         font-size: 12px;
         margin-left: 20px;
     }
+}
+
+@media screen and (max-width: 387px) {
+
+    .nav-home {
+        font-size: 0.7rem;
+    }
+
+    .navbar-brand {
+        font-size: 0.7rem;
+    }
+
+    .login-btn,
+    .logout-btn {
+        font-size: 10px;
+    }
+
+    .title-footer {
+        font-size: 10px;
+    }
+
+
 }

@@ -33,7 +33,7 @@ export const Home = () => {
         'https://p4.wallpaperbetter.com/wallpaper/600/210/496/up-movie-animated-movies-movies-wallpaper-preview.jpg',
         'https://lumiere-a.akamaihd.net/v1/images/eu_xx_strange-world_c196_r_77f2a2c6.jpeg?region=0,2,1630,916',
         'https://www.lavanguardia.com/andro4all/hero/2023/08/dont-look-up.png?width=768&aspect_ratio=16:9&format=nowebp',
-        'https://www.xtrafondos.com/descargar.php?id=8479&resolucion=3840x2160'
+        'https://img.freepik.com/fotos-premium/hombre-abrigado-sombrero-al-estilo-pelicula-negra-calle-oscura_1160231-6297.jpg?w=826'
     ];
 
     // List of icons for category cards
